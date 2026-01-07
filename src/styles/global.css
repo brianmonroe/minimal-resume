@@ -28,7 +28,7 @@ html {
   body {
     background: white !important;
     color: black !important;
-    font-size: 88%;
+    font-size: 85%;
   }
 
   /* Remove borders entirely */
@@ -60,8 +60,8 @@ html {
   section {
     break-inside: auto;
     page-break-inside: auto;
-    padding-top: 0.75rem !important;
-    padding-bottom: 0.75rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
   }
 
   article {
@@ -87,7 +87,7 @@ html {
 
   /* Reduce spacing under section headers */
   section > div > div.mb-6 {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.3rem !important;
   }
 }
 
