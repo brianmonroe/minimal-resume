@@ -38,7 +38,7 @@ export const projects: ProjectItem[] = [
   {
     type: "Photography",
     title: "Pixiset Galleries",
-    description: "Variety of photoshoots.",
+    description: "Photography galleries.",
     image: "/images/projects/angiel.png",
     link: "https://galleries.pixieset.com/collections",
   },
