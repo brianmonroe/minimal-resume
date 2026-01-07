@@ -46,7 +46,6 @@ export const experience: ExperienceItem[] = [
       "Set up email subscriber lists and schedule/deploy email promotions",
       "Promoted to Web Developer to assist developing 30+ websites",
       "Added products to e-commerce catalog through Excel batch scripts",
-      "Added programs to club/subscription websites",
     ],
   },
     {
