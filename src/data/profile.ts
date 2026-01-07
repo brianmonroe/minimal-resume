@@ -11,7 +11,7 @@ export const profile = {
     "Bootstrap & Tailwind CSS Libraries",
     "Responsive Design & Development",
     "SEO & ADA Compliance",
-    "GitHub Reopository Management",
+    "GitHub Repository Management",
     "Cloudflare Security & Caching",
     "Adobe Photoshop, Illustrator, & Lightroom",
     "Microsoft Visual Studio / VSCode",
