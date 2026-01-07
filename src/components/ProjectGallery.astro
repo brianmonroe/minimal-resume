@@ -1,6 +1,12 @@
 ---
 import Section from "./Section.astro";
 import { projects } from "../data/projects";
+
+/**
+ * Resolve public assets correctly for GitHub Pages / subpaths
+ */
+ const asset = (path) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
 ---
 
 <Section id="projects" title="Project Gallery">
@@ -8,7 +14,7 @@ import { projects } from "../data/projects";
     {projects.map((p) => (
       <article class="rounded-xl border border-zinc-200 bg-white overflow-hidden shadow-soft print-flat">
         <img
-          src={Astro.resolve(profile.image)}
+          src={asset(p.image)}
           alt={p.title}
           width="1200"
           height="675"
