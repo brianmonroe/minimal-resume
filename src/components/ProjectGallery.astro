@@ -8,7 +8,7 @@ import { projects } from "../data/projects";
     {projects.map((p) => (
       <article class="rounded-xl border border-zinc-200 bg-white overflow-hidden shadow-soft print-flat">
         <img
-          src={p.image}
+          src={Astro.resolve(profile.image)}
           alt={p.title}
           width="1200"
           height="675"
