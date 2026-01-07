@@ -31,16 +31,16 @@ export const projects: ProjectItem[] = [
   {
     type: "Political Bio Website",
     title: "Angie King - State Representative",
-    description: "Personal website for State Representative Angie King. Built with Astro + Tailwind",
+    description: "Personal website for State Representative Angie King. Built with Astro + Tailwind.",
     icon: "html",
     link: "https://dev.kingforohio.com",
   },
   {
     type: "Photography",
     title: "Pixiset Galleries",
-    description: "Photography galleries.",
+    description: "Photography galleries. All photos shot with a Nikon DSLR camera and process in Adobe Lightroom.",
     icon: "photography",
-    link: "https://galleries.pixieset.com/collections",
+    link: "https://brianmonroe.pixieset.com",
   },
   {
     type: "Code Example",

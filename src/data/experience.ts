@@ -17,7 +17,7 @@ export const experience: ExperienceItem[] = [
     responsibilities: [
       "Develop and maintain features for large-scale e-commerce websites using ASP.NET MVC, Razor, C#, and JavaScript",
       "Implement SEO and ADA accessibility improvements to improve site compliance, usability, and search visibility",
-      "Develop automated scripts for Adobe Illustrator that converts customer proofs to print-ready files",
+      "Develop automated scripts for Adobe Illustrator that converts customer proofs into print-ready files",
       "Collaborate with in-house teams and external developers to deliver projects ranging from small enhancements to large feature initiatives",
     ],
   },
