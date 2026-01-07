@@ -1,0 +1,28 @@
+---
+const resumeUrl = "https://brianmonroe.github.io/minimal-resume/";
+const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=${encodeURIComponent(resumeUrl)}`;
+---
+
+<section class="hidden print:block mt-8 pt-4">
+  <div class="flex items-center gap-4">
+    <img
+      src={qrUrl}
+      alt="QR code linking to online resume"
+      width="140"
+      height="140"
+      class="shrink-0"
+    />
+
+    <div>
+      <p class="text-sm font-semibold text-zinc-900">
+        See projects and photo galleries
+      </p>
+      <p class="text-xs text-zinc-700 mt-1">
+        Scan the QR code or visit:
+      </p>
+      <p class="text-xs font-medium text-zinc-900 mt-1">
+        {resumeUrl}
+      </p>
+    </div>
+  </div>
+</section>
