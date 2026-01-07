@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --------------------------------------------
+   Global tweaks (minimal / clean)
+-------------------------------------------- */
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container-narrow {
+  @apply max-w-4xl mx-auto px-4;
+}
+
+/* --------------------------------------------
+   Print-friendly resume styles
+-------------------------------------------- */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 92%;
+  }
+
+  /* Remove borders entirely */
+  .border,
+  .border-t,
+  .border-b,
+  .border-l,
+  .border-r {
+    border: none !important;
+  }
+
+  /* Remove rounded corners */
+  .rounded,
+  .rounded-lg,
+  .rounded-xl,
+  .rounded-2xl,
+  .rounded-full {
+    border-radius: 0 !important;
+  }
+
+  /* Remove card padding */
+  .p-4,
+  .p-5,
+  .p-6 {
+    padding: 0 !important;
+  }
+
+  /* Prevent awkward splits */
+  section {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  article {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* Kill decorative stuff */
+  .print-flat {
+    box-shadow: none !important;
+  }
+
+  /* Tighten vertical rhythm */
+  .print-tight {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+

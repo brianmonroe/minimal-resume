@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+
+import ProfileHeader from "../components/ProfileHeader.astro";
+import ExperienceTimeline from "../components/ExperienceTimeline.astro";
+import Education from "../components/Education.astro";
+import ProjectGallery from "../components/ProjectGallery.astro";
+import Volunteer from "../components/Volunteer.astro";
+import CTA from "../components/CTA.astro";
+---
+
+<BaseLayout title="Brian Monroe — Resume & Portfolio">
+  <main>
+    <ProfileHeader />
+
+    
+    <ExperienceTimeline />
+
+    
+    <Education />
+
+    
+    <div class="no-print">
+      <ProjectGallery />
+    </div>
+
+    
+    <Volunteer />
+
+    
+    <CTA />
+
+    <footer class="py-10 no-print">
+      <div class="container-narrow text-xs text-zinc-500">
+        <p>© {new Date().getFullYear()} • Brian Monroe</p>
+      </div>
+    </footer>
+  </main>
+</BaseLayout>

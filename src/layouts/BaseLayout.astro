@@ -1,0 +1,16 @@
+---
+const { title = "Resume" } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content="A minimal resume and project gallery." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="bg-zinc-50 text-zinc-900 antialiased">
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,16 @@
+---
+const { id, title, subtitle } = Astro.props;
+---
+
+<section
+  id={id}
+  class="py-6 print:py-2"
+>
+  <div class="container-narrow">
+    <div class="mb-6">
+      <h2 class="text-2xl font-semibold tracking-tight">{title}</h2>
+      {subtitle ? <p class="mt-1 text-sm text-zinc-600">{subtitle}</p> : null}
+    </div>
+    <slot />
+  </div>
+</section>
