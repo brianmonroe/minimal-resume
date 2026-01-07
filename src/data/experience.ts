@@ -41,10 +41,12 @@ export const experience: ExperienceItem[] = [
     location: "Berne, IN",
     title: "Web Developer, E-Mail Marketing Associate",
     responsibilities: [
+      "Assisted small marketing team responsible for promoting multiple brands/clubs",
       "Convert marketing email design/content into valid HTML markup",
       "Set up email subscriber lists and schedule/deploy email promotions",
       "Promoted to Web Developer to assist developing 30+ websites",
       "Added products to e-commerce catalog through SQL batch scripts",
+      "Added programs to club/supscription websites",
     ],
   },
     {
