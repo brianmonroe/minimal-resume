@@ -7,8 +7,34 @@ const { title = "Resume" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <meta name="description" content="A minimal resume and project gallery." />
+    <meta name="description" content="Brian Monroe — Web Developer, UI/UX, and Digital Marketing." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="canonical" href="https://resume.brianmonroe.io/" />
+
+    <!-- Social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://resume.brianmonroe.io/" />
+    <meta property="og:title" content="Brian Monroe — Web Developer | UI/UX | Photography" />
+    <meta
+      property="og:description"
+      content="Web developer with 18+ years of experience in web development, UI/UX design, and digital marketing."
+    />
+    <meta
+      property="og:image"
+      content="https://resume.brianmonroe.io/og-image.png"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Brian Monroe — Web Developer | UI/UX | Photography" />
+    <meta
+      name="twitter:description"
+      content="Web developer with 18+ years of experience in web development, UI/UX design, and digital marketing."
+    />
+    <meta
+      name="twitter:image"
+      content="https://resume.brianmonroe.io/og-image.png"
+    />
 
     {import.meta.env.PROD && (
       <script
