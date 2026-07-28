@@ -1,12 +1,18 @@
 ---
+import { Image } from "astro:assets";
 import Section from "./Section.astro";
 import { projects } from "../data/projects";
-
-/**
- * Resolve public assets correctly for GitHub Pages / subpaths
- */
-const asset = (path) =>
-  `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+import derby02 from "../assets/photo_gallery/derby_02.jpg";
+import derby03 from "../assets/photo_gallery/derby_03.jpg";
+import bertkeSenior from "../assets/photo_gallery/bertke_sp_2019105-16.jpg";
+import liaIcebreaker from "../assets/photo_gallery/bmp-lia-2020icebreaker-3.jpg";
+import liaWinterDance from "../assets/photo_gallery/lia-winter-dance-2024-22.jpg";
+import eversFamily from "../assets/photo_gallery/2022-evers-family-24.jpg";
+import tayaSoccer from "../assets/photo_gallery/2025-soccer-taya-beavercreak-287.jpg";
+import kidsSoccer from "../assets/photo_gallery/soccer-80.jpg";
+import mooseOfficers from "../assets/photo_gallery/moose-officers-2020-2-9.jpg";
+import billermanSenior from "../assets/photo_gallery/billerman-senior-2023-17.jpg";
+import billermanBoardwalk from "../assets/photo_gallery/2025-senior-billerman-boardwalk-31.jpg";
 
 const icons = {
   ecommerce: `
@@ -36,11 +42,17 @@ const icons = {
 };
 
 const galleryImages = [
-  { src: "https://picsum.photos/seed/portrait-session/900/500", alt: "Placeholder portrait photography" },
-  { src: "https://picsum.photos/seed/sports-event/900/500", alt: "Placeholder sports photography" },
-  { src: "https://picsum.photos/seed/outdoor-event/900/500", alt: "Placeholder event photography" },
-  { src: "https://picsum.photos/seed/senior-photos/900/500", alt: "Placeholder senior photography" },
-  { src: "https://picsum.photos/seed/celebration/900/500", alt: "Placeholder celebration photography" },
+  { src: derby02, alt: "Placeholder senior photography" },
+  { src: derby03, alt: "Placeholder senior photography" },
+  { src: bertkeSenior, alt: "Placeholder celebration photography" },
+  { src: liaIcebreaker, alt: "Placeholder celebration photography" },
+  { src: liaWinterDance, alt: "Placeholder celebration photography" },
+  { src: eversFamily, alt: "Placeholder celebration photography" },
+  { src: tayaSoccer, alt: "Placeholder celebration photography" },
+  { src: kidsSoccer, alt: "Kids soccer photo." },
+  { src: mooseOfficers, alt: "Placeholder sports photography" },
+  { src: billermanSenior, alt: "Placeholder event photography" },
+  { src: billermanBoardwalk, alt: "Placeholder event photography" },
 ];
 ---
 
@@ -56,8 +68,12 @@ const galleryImages = [
           rel={p.link ? "noreferrer" : undefined}
           class="group block w-full overflow-hidden rounded-xl bg-white text-left focus:outline-none focus:ring-2 focus:ring-zinc-400"
         >
-          <div class="flex h-24 shrink-0 items-center justify-center self-start bg-gradient-to-br from-zinc-900 to-zinc-700 text-white sm:h-28">
-            <div set:html={icons[p.icon]} />
+          <div
+            class="relative flex h-24 shrink-0 items-center justify-center self-start overflow-hidden bg-zinc-900 bg-cover bg-center text-white sm:h-28"
+            style={`background-image: url("${p.image}")`}
+          >
+            <div class="absolute inset-0 bg-gradient-to-b from-zinc-900/40 via-zinc-900/80 to-zinc-900"></div>
+            <div class="relative z-10" set:html={icons[p.icon]} />
           </div>
 
           <div class="p-5">
@@ -120,15 +136,17 @@ const galleryImages = [
       class="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain scroll-smooth pb-4"
       aria-label="Photography gallery images"
     >
-      {galleryImages.map((image, index) => (
-        <figure class="w-full shrink-0 snap-center">
-          <img
+      {galleryImages.map((image) => (
+        <figure class="flex h-[65vh] max-h-[44rem] w-full shrink-0 snap-center items-center justify-center overflow-hidden rounded-xl bg-black">
+          <Image
             src={image.src}
             alt={image.alt}
-            width="900"
-            height="500"
-            loading={index === 0 ? "eager" : "lazy"}
-            class="aspect-[9/5] w-full rounded-xl object-cover"
+            widths={[480, 900, 1400, 2000]}
+            sizes="(max-width: 768px) 94vw, 1100px"
+            format="webp"
+            quality={80}
+            loading="lazy"
+            class="h-full w-full object-contain"
           />
         </figure>
       ))}
