@@ -79,6 +79,15 @@ html {
     box-shadow: none !important;
   }
 
+  /* Preserve contrast and pill styling for core skills */
+  .core-skill {
+    background-color: #18181b !important;
+    color: white !important;
+    border-radius: 0.5rem !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
   /* Tighten vertical rhythm */
   .print-tight {
     margin-top: 0 !important;
@@ -90,4 +99,3 @@ html {
     margin-bottom: 0.3rem !important;
   }
 }
-

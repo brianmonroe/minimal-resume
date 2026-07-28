@@ -8,7 +8,7 @@ const { title = "Resume" } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content="A minimal resume and project gallery." />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}images/profile.png`} />
 
     {import.meta.env.PROD && (
       <script

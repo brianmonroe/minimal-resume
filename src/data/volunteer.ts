@@ -18,4 +18,17 @@ export const volunteer: VolunteerItem[] = [
       "Manage the Facebook page livestream during monthly membership meetings",
     ],
   },
+  {
+    organization: "Celina Moose Lodge #1473",
+    role: "Communications Chairman",
+    start: "January 2009",
+    end: "Present",
+    description: [
+      "Collaborate with Moose administration and board members to promote Moose news and events",
+      "Manage and maintain the Celina Moose website",
+      "Manage and assist updating the Celina Moose social media pages",
+      "Design print marketing / promotional material",
+      "Designated photographer for Moose special events and activities",
+    ],
+  },
 ];

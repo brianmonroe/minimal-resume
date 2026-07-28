@@ -1,10 +1,10 @@
 export const profile = {
   name: "Brian Monroe",
-  headline: "Web Development • UI/UX Design • Photography",
+  headline: "Web Development • Digital Marketing • UI/UX Design",
   location: "Celina, OH",
   image: "/images/profile.png",
   summary:
-    "Web developer with 18+ years of experience building, maintaining, and improving production websites, e-commerce platforms, and digital marketing systems. Currently working at Totally Promotional, collaborating with marketing and design teams to develop ASP.NET MVC-based e-commerce solutions, optimize performance, and support ongoing growth across web properties and content platforms.",
+    "Web developer and digital marketing professional with 18+ years of experience creating websites, e-commerce experiences, and campaigns that connect business goals with customer needs. Combines hands-on development expertise with a background in email marketing, SEO, accessibility, UI/UX design, and content delivery to help teams build effective, user-focused digital experiences.",
   highlights: [
     "HTML, PHP, ASP.NET Programming",
     "Astro, WordPress Framework",

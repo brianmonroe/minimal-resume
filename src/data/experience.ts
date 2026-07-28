@@ -9,29 +9,29 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    start: "June 2020",
-    end: "Present",
-    company: "Totally Promotional",
-    location: "Coldwater, OH",
-    title: "Web Developer",
-    responsibilities: [
-      "Develop and maintain features for large-scale e-commerce websites using ASP.NET MVC, Razor, C#, and JavaScript",
-      "Implement SEO and ADA accessibility improvements to improve site compliance, usability, and search visibility",
-      "Develop automated scripts for Adobe Illustrator that converts customer proofs into print-ready files",
-      "Collaborate with in-house teams and external developers to deliver projects ranging from small enhancements to large feature initiatives",
-    ],
-  },
-  {
     start: "June 2008",
     end: "Present",
     company: "Freelance/Contract",
     location: "Celina, OH",
     title: "Developer + Photographer",
     responsibilities: [
-      "Design and develop small-to-mid-size websites using Astro, WordPress, Tailwind CSS, and Bootstrap",
-      "Manage client projects using Git-based version control and modern deployment workflows",
-      "Digital photography specializing in senior, live event, and sports photography",
-      "Manage and assist with client social media pages",
+      "Design and develop responsive websites for small and midsize organizations using Astro, WordPress, Tailwind CSS, and Bootstrap",
+      "Manage client projects with Git-based version control and modern deployment workflows",
+      "Plan and produce senior, live event, and sports photography",
+      "Create and manage content for client social media pages",
+    ],
+  },
+  {
+    start: "June 2020",
+    end: "June 2026",
+    company: "Totally Promotional",
+    location: "Coldwater, OH",
+    title: "Web Developer",
+    responsibilities: [
+      "Developed and maintained features for large-scale e-commerce websites using ASP.NET MVC, Razor, C#, and JavaScript",
+      "Implemented technical SEO and accessibility improvements that strengthened usability, compliance, and search visibility",
+      "Built Adobe Illustrator automation scripts that converted customer proofs into print-ready files",
+      "Partnered with marketing, design, and development teams to deliver enhancements and large-scale feature initiatives",
     ],
   },
   {
@@ -41,11 +41,11 @@ export const experience: ExperienceItem[] = [
     location: "Berne, IN",
     title: "Web Developer, E-Mail Marketing Associate",
     responsibilities: [
-      "Assisted small marketing team responsible for promoting multiple brands/clubs",
-      "Convert marketing email design/content into valid HTML markup",
-      "Set up email subscriber lists and schedule/deploy email promotions",
-      "Promoted to Web Developer to assist developing 30+ websites",
-      "Added products to e-commerce catalog through Excel batch scripts",
+      "Supported a marketing team responsible for promoting multiple brands and membership clubs",
+      "Converted campaign designs and content into responsive HTML emails",
+      "Managed subscriber lists and scheduled and deployed email campaigns",
+      "Earned a promotion to Web Developer and helped maintain more than 30 websites",
+      "Streamlined e-commerce catalog updates using Excel batch scripts",
     ],
   },
     {
@@ -55,8 +55,8 @@ export const experience: ExperienceItem[] = [
     location: "Columbus, OH",
     title: "Web Developer, Graphic Design Intern",
     responsibilities: [
-      "Began as an internship assisting developers with website UX and print design",
-      "Promoted to full-time and worked directly with clients on digital and print marketing material",
+      "Began as an intern, supporting developers with website UX and print design",
+      "Earned a full-time role and worked directly with clients on digital and print marketing materials",
     ],
   },
 ];
