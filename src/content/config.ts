@@ -4,7 +4,15 @@ const organizations = defineCollection({
   type: "content",
   schema: z.object({
     organization: z.string(),
-    question: z.string().optional(),
+    recipient: z.string().optional(),
+    address: z.string(),
+    city: z.string(),
+    state: z.string(),
+    zipcode: z.string(),
+    subject: z.string(),
+    greeting: z.string().default("Dear Hiring Committee,"),
+    closing: z.string().default("Sincerely,"),
+    date: z.coerce.date(),
   }),
 });
 

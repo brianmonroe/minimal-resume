@@ -1,12 +1,29 @@
 ---
 organization: "Celina City Schools"
+recipient: "Hiring Committee"
+address: "585 E. Livingston Street"
+city: "Celina"
+state: "OH"
+zipcode: "45822"
+subject: "Expression of Interest — In-House Web Developer"
+greeting: "Dear Hiring Committee,"
+closing: "Sincerely,"
+date: "2026-08-03"
 ---
 
-- Keep website content accurate, organized, and up to date so families, students, staff, and community members can quickly find the information they need.
-- Help keep district websites accessible and aligned with current ADA and web-accessibility expectations while following applicable student-data privacy requirements and district policies.
-- Review and deploy content updates promptly, helping the district communicate schedule changes, announcements, and other time-sensitive information with confidence.
-- Identify outdated pages that still appear in search results and add appropriate redirects, guiding visitors to current information while improving the overall website experience.
-- Support the district’s email newsletter and explore targeted communication channels for specific schools, grade levels, activities, or community groups so each audience receives timely, relevant updates.
-- Photograph and/or video school events, student activities, and district milestones, then prepare each image for fast website performance and effective social sharing.
-- Make the district website a stronger, reliable source for events and activities, reducing dependence on Facebook while allowing social media to support—not replace—the district’s own communication channels.
-- Explore a club or mentorship opportunity for students interested in app development, responsible uses of AI, photography, and digital content creation, giving them practical experience through projects that could benefit the school community.
+I realize Celina City Schools is not currently advertising a web developer position. As I search for my next full-time opportunity, I wanted to ask whether the district would consider adding an in-house developer who could also support digital communications.
+
+While looking for information about my children’s upcoming school year and sports requirements, I noticed opportunities to make the district website more complete, current, and easier to navigate. With more than 18 years of experience in web development, digital marketing, accessibility, SEO, photography, and UI/UX design, I could help make it a more dependable resource for families, students, staff, and the community.
+
+An in-house developer could:
+
+- Keep content accurate, organized, and current throughout the school year.
+- Improve accessibility, usability, mobile performance, and student-data privacy.
+- Publish time-sensitive updates and redirect outdated search results to current information.
+- Make the website the primary source for events and activities, supported by social media and targeted email communications.
+- Photograph or record school events and optimize media for the web and social sharing.
+- Explore student clubs or mentorships in app development, responsible AI, photography, and digital content creation.
+
+I understand that creating a full-time position requires careful consideration. My hope is to begin a conversation about whether this role could improve the district’s digital services while giving staff a consistent resource for website and communication needs.
+
+Thank you for your consideration. I would welcome the opportunity to discuss the idea and learn more about the district’s needs.

@@ -1,5 +1,5 @@
 export const cta = {
-  heading: "Let’s talk.",
+  heading: "",
   body: "Available for freelance, contract, or full-time opportunities.",
   email: "monroe.brian@icloud.com",
   links: [
