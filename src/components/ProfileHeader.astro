@@ -1,5 +1,7 @@
 ---
 import { profile } from "../data/profile";
+import { cta } from "../data/cta";
+import Icon from "./Icon.astro";
 
 /**
  * Resolve public assets correctly for GitHub Pages / subpaths
@@ -28,27 +30,36 @@ const asset = (path) =>
           <p class="text-sm md:text-base text-zinc-600 mt-1">
             {profile.headline}
           </p>
-          <p class="text-sm text-zinc-500 mt-1">
-            {profile.location}
-          </p>
         </div>
       </div>
 
-      <div class="md:ml-auto flex gap-2 no-print">
-        <a
-          href="#contact"
-          class="inline-flex items-center justify-center rounded-md border border-zinc-200 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-zinc-50"
-        >
-          Contact
-        </a>
+      <div class="md:ml-auto no-print">
         <button
           type="button"
-          class="inline-flex items-center justify-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-zinc-800"
+          class="inline-flex items-center justify-center gap-2 rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-zinc-800"
           onclick="window.print()"
         >
+          <Icon name="printer" class="h-4 w-4" />
           Print / Save PDF
         </button>
       </div>
+    </div>
+
+    <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-700 shadow-sm print:border-0 print:px-0 print:py-1 print:shadow-none">
+      <a class="inline-flex items-center gap-2 decoration-zinc-400 underline-offset-4 transition-colors hover:text-zinc-950 hover:underline focus-visible:underline" href={`mailto:${cta.email}`}>
+        <Icon name="mail" class="h-4 w-4 text-zinc-900" />
+        {cta.email}
+      </a>
+      <a class="inline-flex items-center gap-2 decoration-zinc-400 underline-offset-4 transition-colors hover:text-zinc-950 hover:underline focus-visible:underline" href={`tel:${cta.phone.replace(/[^\d+]/g, "")}`}>
+        <Icon name="phone" class="h-4 w-4 text-zinc-900" />
+        {cta.phone}
+      </a>
+      {cta.links.map((link) => (
+        <a class="inline-flex items-center gap-2 decoration-zinc-400 underline-offset-4 transition-colors hover:text-zinc-950 hover:underline focus-visible:underline print:hidden" href={link.href} target="_blank" rel="noreferrer">
+          <Icon name={link.icon} class="h-4 w-4 text-zinc-900" />
+          {link.label}
+        </a>
+      ))}
     </div>
 
     <div class="mt-6 space-y-6 print-gap-tight">
@@ -59,7 +70,10 @@ const asset = (path) =>
 
       <!-- Skills -->
       <div class="mt-6 print-flat">
-        <h2 class="text-3xl font-semibold tracking-tight">
+        <h2 class="flex items-center gap-3 text-3xl font-semibold tracking-tight">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-zinc-900 text-white print:hidden">
+            <Icon name="sparkles" class="h-5 w-5" />
+          </span>
           Core Skills
         </h2>
 

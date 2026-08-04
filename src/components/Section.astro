@@ -1,5 +1,7 @@
 ---
-const { id, title, subtitle } = Astro.props;
+import Icon from "./Icon.astro";
+
+const { id, title, subtitle, icon } = Astro.props;
 ---
 
 <section
@@ -8,7 +10,14 @@ const { id, title, subtitle } = Astro.props;
 >
   <div class="container-narrow">
     <div class="mb-6">
-      <h2 class="text-3xl font-semibold tracking-tight">{title}</h2>
+      <h2 class="flex items-center gap-3 text-3xl font-semibold tracking-tight">
+        {icon && (
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-zinc-900 text-white print:hidden">
+            <Icon name={icon} class="h-5 w-5" />
+          </span>
+        )}
+        {title}
+      </h2>
       {subtitle ? <p class="mt-1 text-sm text-zinc-600">{subtitle}</p> : null}
     </div>
     <slot />

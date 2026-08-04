@@ -1,15 +1,16 @@
 ---
 import Section from "./Section.astro";
+import Icon from "./Icon.astro";
 import { education } from "../data/education";
 ---
 
-<Section id="education" title="Education">
+<Section id="education" title="Education" icon="graduation">
   <div class="space-y-5">
     {education.map((ed) => (
       <article class="rounded-xl bg-white p-5">
         <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
           <h3 class="text-base md:text-lg font-semibold tracking-tight">{ed.degree}</h3>
-          {(ed.start || ed.end) ? <p class="text-xs md:text-sm text-zinc-500">{ed.start ?? ""}{ed.start && ed.end ? " – " : ""}{ed.end ?? ""}</p> : null}
+          {(ed.start || ed.end) ? <p class="flex items-center gap-1.5 text-xs text-zinc-500 md:text-sm"><Icon name="calendar" class="h-3.5 w-3.5" />{ed.start ?? ""}{ed.start && ed.end ? " – " : ""}{ed.end ?? ""}</p> : null}
         </div>
         <p class="mt-1 text-sm text-zinc-700">{ed.institution}</p>
         {ed.notes?.length ? (

@@ -1,9 +1,10 @@
 ---
 import Section from "./Section.astro";
+import Icon from "./Icon.astro";
 import { volunteer } from "../data/volunteer";
 ---
 
-<Section id="volunteer" title="Volunteer Organizations">
+<Section id="volunteer" title="Volunteer Organizations" icon="users">
   <div class="space-y-5">
     {volunteer.map((v) => (
       <article class="rounded-xl bg-white p-5">
@@ -11,7 +12,10 @@ import { volunteer } from "../data/volunteer";
           <h3 class="text-base md:text-lg font-semibold tracking-tight">
             {v.role} <span class="text-zinc-400 font-normal">—</span> {v.organization}
           </h3>
-          <p class="text-xs md:text-sm text-zinc-500">{v.start} – {v.end}</p>
+          <p class="flex items-center gap-1.5 text-xs text-zinc-500 md:text-sm">
+            <Icon name="calendar" class="h-3.5 w-3.5" />
+            {v.start} – {v.end}
+          </p>
         </div>
         <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-zinc-700 print:space-y-0">
           {v.description.map((d) => <li>{d}</li>)}

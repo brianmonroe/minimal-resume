@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Section from "./Section.astro";
+import Icon from "./Icon.astro";
 import { projects } from "../data/projects";
 import derby02 from "../assets/photo_gallery/derby_02.jpg";
 import derby03 from "../assets/photo_gallery/derby_03.jpg";
@@ -56,32 +57,27 @@ const galleryImages = [
 ];
 ---
 
-<Section id="projects" title="Project Gallery">
+<Section id="projects" title="Project Gallery" icon="projects">
   <div class="grid md:grid-cols-2 gap-6 print-gap-tight">
     {projects.map((p) => {
-      const Wrapper = p.gallery ? "article" : p.link ? "a" : "div";
-
       return (
-        <Wrapper
-          href={p.link}
-          target={p.link ? "_blank" : undefined}
-          rel={p.link ? "noreferrer" : undefined}
-          class="group block w-full overflow-hidden rounded-xl bg-white text-left focus:outline-none focus:ring-2 focus:ring-zinc-400"
+        <article
+          class="group flex w-full flex-col overflow-hidden rounded-xl bg-white text-left shadow-sm"
         >
           <div
-            class="relative flex h-24 shrink-0 items-center justify-center self-start overflow-hidden bg-zinc-900 bg-cover bg-center text-white sm:h-28"
+            class="relative flex h-24 w-full shrink-0 items-center justify-center overflow-hidden bg-zinc-900 bg-cover bg-center text-white sm:h-28"
             style={`background-image: url("${p.image}")`}
           >
             <div class="absolute inset-0 bg-gradient-to-b from-zinc-900/40 via-zinc-900/80 to-zinc-900"></div>
             <div class="relative z-10" set:html={icons[p.icon]} />
           </div>
 
-          <div class="p-5">
+          <div class="flex flex-1 flex-col p-5">
             <p class="text-xs font-medium uppercase tracking-wide text-zinc-500">
               {p.type}
             </p>
 
-            <h3 class="mt-1 text-base md:text-lg font-semibold tracking-tight group-hover:underline">
+            <h3 class="mt-1 text-base font-semibold tracking-tight md:text-lg">
               {p.title}
             </h3>
 
@@ -89,26 +85,77 @@ const galleryImages = [
               {p.description}
             </p>
 
-            {p.gallery ? (
+            <div class="mt-auto flex flex-wrap gap-x-4 gap-y-2 pt-4">
+              {p.gallery ? (
+                <button
+                  type="button"
+                  data-gallery-trigger
+                  aria-haspopup="dialog"
+                  class="appearance-none border-0 bg-transparent p-0 text-sm font-medium text-zinc-900 decoration-zinc-400 underline-offset-4 hover:underline focus-visible:underline focus:outline-none focus:ring-2 focus:ring-zinc-400"
+                >
+                  Launch Photo Gallery <span aria-hidden="true">→</span>
+                </button>
+              ) : p.link && (
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 decoration-zinc-400 underline-offset-4 hover:underline focus-visible:underline"
+                >
+                  View Website
+                  <Icon name="external" class="h-4 w-4" />
+                </a>
+              )}
+
               <button
                 type="button"
-                data-gallery-trigger
+                data-project-details-trigger
+                data-project-title={p.title}
                 aria-haspopup="dialog"
-                class="mt-3 appearance-none border-0 bg-transparent p-0 text-sm font-medium text-zinc-900 hover:underline focus:outline-none focus:ring-2 focus:ring-zinc-400"
+                class="inline-flex appearance-none items-center gap-1.5 border-0 bg-transparent p-0 text-sm font-medium text-zinc-600 decoration-zinc-400 underline-offset-4 hover:text-zinc-900 hover:underline focus-visible:underline focus:outline-none focus:ring-2 focus:ring-zinc-400"
               >
-                Launch Photo Gallery →
+                View Project Details
+                <Icon name="info" class="h-4 w-4" />
               </button>
-            ) : p.link && (
-              <p class="mt-3 text-sm font-medium text-zinc-900">
-                View Project →
-              </p>
-            )}
+            </div>
           </div>
-        </Wrapper>
+        </article>
       );
     })}
   </div>
 </Section>
+
+<dialog
+  data-project-details-dialog
+  aria-labelledby="project-details-title"
+  class="m-auto w-[min(92vw,40rem)] max-w-none rounded-2xl bg-white p-0 text-zinc-900 shadow-2xl backdrop:bg-black/70"
+>
+  <div class="p-6 sm:p-8">
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <p data-project-details-type class="text-xs font-medium uppercase tracking-widest text-zinc-500"></p>
+        <h2 id="project-details-title" data-project-details-title class="mt-1 text-2xl font-semibold tracking-tight"></h2>
+      </div>
+      <button
+        type="button"
+        data-project-details-close
+        class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-zinc-100 text-2xl leading-none transition hover:bg-zinc-200 focus:outline-none focus:ring-2 focus:ring-zinc-400"
+        aria-label="Close project details"
+      >
+        &times;
+      </button>
+    </div>
+
+    <ul data-project-details-list class="mt-6 list-disc space-y-3 pl-5 text-sm leading-relaxed text-zinc-700"></ul>
+  </div>
+</dialog>
+
+<script type="application/json" data-project-details-data set:html={JSON.stringify(
+  Object.fromEntries(projects.map((project) => [
+    project.title,
+    { type: project.type, details: project.details },
+  ]))
+).replace(/</g, "\\u003c")} />
 
 <dialog
   data-photo-gallery
@@ -173,6 +220,15 @@ const galleryImages = [
   const trigger = document.querySelector<HTMLButtonElement>("[data-gallery-trigger]");
   const track = dialog?.querySelector<HTMLElement>("[data-gallery-track]");
   const current = dialog?.querySelector<HTMLElement>("[data-gallery-current]");
+  const detailsDialog = document.querySelector<HTMLDialogElement>("[data-project-details-dialog]");
+  const detailsTitle = detailsDialog?.querySelector<HTMLElement>("[data-project-details-title]");
+  const detailsType = detailsDialog?.querySelector<HTMLElement>("[data-project-details-type]");
+  const detailsList = detailsDialog?.querySelector<HTMLUListElement>("[data-project-details-list]");
+  const detailsDataElement = document.querySelector<HTMLScriptElement>("[data-project-details-data]");
+  const projectDetails: Record<string, { type: string; details: string[] }> =
+    detailsDataElement?.textContent ? JSON.parse(detailsDataElement.textContent) : {};
+  let closeTimer: number | undefined;
+  let detailsCloseTimer: number | undefined;
 
   const updateCounter = () => {
     if (!track || !current) return;
@@ -184,19 +240,180 @@ const galleryImages = [
     track?.scrollBy({ left: direction * track.clientWidth, behavior: "smooth" });
   };
 
+  const closeGallery = () => {
+    if (!dialog?.open || dialog.hasAttribute("data-closing")) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      dialog.close();
+      return;
+    }
+
+    dialog.setAttribute("data-closing", "");
+    closeTimer = window.setTimeout(() => dialog.close(), 220);
+  };
+
   trigger?.addEventListener("click", () => {
+    dialog?.removeAttribute("data-closing");
     dialog?.showModal();
     track?.scrollTo({ left: 0 });
     updateCounter();
   });
 
-  dialog?.querySelector("[data-gallery-close]")?.addEventListener("click", () => dialog.close());
+  dialog?.querySelector("[data-gallery-close]")?.addEventListener("click", closeGallery);
   dialog?.querySelector("[data-gallery-prev]")?.addEventListener("click", () => move(-1));
   dialog?.querySelector("[data-gallery-next]")?.addEventListener("click", () => move(1));
   track?.addEventListener("scrollend", updateCounter);
   track?.addEventListener("scroll", () => requestAnimationFrame(updateCounter), { passive: true });
 
   dialog?.addEventListener("click", (event) => {
-    if (event.target === dialog) dialog.close();
+    if (event.target === dialog) closeGallery();
+  });
+
+  dialog?.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeGallery();
+  });
+
+  dialog?.addEventListener("close", () => {
+    window.clearTimeout(closeTimer);
+    dialog.removeAttribute("data-closing");
+  });
+
+  const closeProjectDetails = () => {
+    if (!detailsDialog?.open || detailsDialog.hasAttribute("data-closing")) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      detailsDialog.close();
+      return;
+    }
+
+    detailsDialog.setAttribute("data-closing", "");
+    detailsCloseTimer = window.setTimeout(() => detailsDialog.close(), 220);
+  };
+
+  document.querySelectorAll<HTMLButtonElement>("[data-project-details-trigger]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const title = button.dataset.projectTitle;
+      const project = title ? projectDetails[title] : undefined;
+      if (!title || !project || !detailsDialog || !detailsTitle || !detailsType || !detailsList) return;
+
+      detailsTitle.textContent = title;
+      detailsType.textContent = project.type;
+      detailsList.replaceChildren(
+        ...project.details.map((detail) => {
+          const item = document.createElement("li");
+          item.textContent = detail;
+          return item;
+        })
+      );
+
+      detailsDialog.removeAttribute("data-closing");
+      detailsDialog.showModal();
+    });
+  });
+
+  detailsDialog?.querySelector("[data-project-details-close]")?.addEventListener("click", closeProjectDetails);
+
+  detailsDialog?.addEventListener("click", (event) => {
+    if (event.target === detailsDialog) closeProjectDetails();
+  });
+
+  detailsDialog?.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeProjectDetails();
+  });
+
+  detailsDialog?.addEventListener("close", () => {
+    window.clearTimeout(detailsCloseTimer);
+    detailsDialog.removeAttribute("data-closing");
   });
 </script>
+
+<style>
+  [data-project-details-dialog][open] {
+    animation: gallery-enter 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  [data-project-details-dialog][open]::backdrop {
+    animation: details-backdrop-enter 220ms ease-out both;
+  }
+
+  [data-project-details-dialog][data-closing] {
+    animation: gallery-exit 180ms ease-in both;
+  }
+
+  [data-project-details-dialog][data-closing]::backdrop {
+    animation: details-backdrop-exit 180ms ease-in both;
+  }
+
+  [data-photo-gallery][open] {
+    animation: gallery-enter 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  [data-photo-gallery][open]::backdrop {
+    animation: gallery-backdrop-enter 220ms ease-out both;
+  }
+
+  [data-photo-gallery][data-closing] {
+    animation: gallery-exit 180ms ease-in both;
+  }
+
+  [data-photo-gallery][data-closing]::backdrop {
+    animation: gallery-backdrop-exit 180ms ease-in both;
+  }
+
+  @keyframes gallery-enter {
+    from {
+      opacity: 0;
+      transform: translateY(1rem) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes gallery-exit {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(0.5rem) scale(0.98);
+    }
+  }
+
+  @keyframes gallery-backdrop-enter {
+    from { background-color: rgb(0 0 0 / 0%); }
+    to { background-color: rgb(0 0 0 / 80%); }
+  }
+
+  @keyframes details-backdrop-enter {
+    from { background-color: rgb(0 0 0 / 0%); }
+    to { background-color: rgb(0 0 0 / 70%); }
+  }
+
+  @keyframes gallery-backdrop-exit {
+    from { background-color: rgb(0 0 0 / 80%); }
+    to { background-color: rgb(0 0 0 / 0%); }
+  }
+
+  @keyframes details-backdrop-exit {
+    from { background-color: rgb(0 0 0 / 70%); }
+    to { background-color: rgb(0 0 0 / 0%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-photo-gallery][open],
+    [data-photo-gallery][open]::backdrop,
+    [data-photo-gallery][data-closing],
+    [data-photo-gallery][data-closing]::backdrop,
+    [data-project-details-dialog][open],
+    [data-project-details-dialog][open]::backdrop,
+    [data-project-details-dialog][data-closing],
+    [data-project-details-dialog][data-closing]::backdrop {
+      animation: none;
+    }
+  }
+</style>

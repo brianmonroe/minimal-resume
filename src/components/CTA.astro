@@ -17,7 +17,7 @@ import { cta } from "../data/cta";
       </a>
       <div class="flex flex-wrap gap-3 text-base">
         {cta.links.map((l) => (
-          <a class="text-zinc-900 underline underline-offset-4 hover:no-underline" href={l.href} target="_blank" rel="noreferrer">
+          <a class="text-zinc-900 decoration-zinc-400 underline-offset-4 hover:underline focus-visible:underline" href={l.href} target="_blank" rel="noreferrer">
             {l.label}
           </a>
         ))}
