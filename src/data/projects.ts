@@ -69,6 +69,7 @@ export const projects: ProjectItem[] = [
       "Primary photographer for the Lodge's events and activities, providing high-quality images for the website and social media.",
       "Analyze website and social media traffic to optimize content and engagement strategies.",
       "The website serves around 1,200 unique vistors per month and approximately 3,000 page views per month, with a majority of traffic coming from mobile devices.",
+      "9,700+ Facebook followers with aapproximately 270,000+ views per month on average.",
       "Implemented an efficient code deployment workflow for future content updates and site maintenance.",
     ],
   },
