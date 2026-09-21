@@ -17,8 +17,9 @@ export const experience: ExperienceItem[] = [
     responsibilities: [
       "Design and develop responsive websites for small and midsize organizations using Astro, WordPress, Tailwind CSS, and Bootstrap",
       "Manage client digital projects with Git-based version control and modern deployment workflows",
-      "Plan and produce senior, live event, and sports photography",
+      "Plan and conduct photography sessions, then edit and deliver digital images",
       "Create and manage content for client social media pages",
+      "Use AI tools to automate routine tasks and improve process efficiency",
     ],
   },
   {
@@ -45,7 +46,7 @@ export const experience: ExperienceItem[] = [
       "Converted campaign Photoshop designs and content into responsive HTML emails",
       "Managed subscriber lists and scheduled and deployed email campaigns",
       "Earned a promotion to Web Developer and helped maintain 30+ websites (4 e-commerce, 15 subscription/continuity, 8 lead-generation, 3 informational) built on a variety of platforms including WordPress, Magento, and custom PHP",
-      "Streamlined e-commerce catalog product builds a coupon database using Excel batch scripts",
+      "Streamlined e-commerce catalog product builds and coupon code database maintenance using Excel batch scripts",
     ],
   },
   {
